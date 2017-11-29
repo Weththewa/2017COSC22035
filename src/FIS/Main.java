@@ -1,15 +1,33 @@
-package Program;
+package FIS;
 
-import DBConnect.*;
-import java.sql.*;
+import DBConnect.dbConnect;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Statement stcs = null;
         Statement stml = null;
 
+        DBConnect.dbConnect CS = new dbConnect();
+        stcs = CS.Conn2DB();
+        String query = "SELECT * FROM userdetails";
+        String insertquery = "INSERT INTO 'userdetails'('UserID','UserName','Email','Password','Role') VALUES (123,\"sql|",
+        try {
+            ResultSet rs = stcs.executeQuery(query);
+            while (rs.next()) {
+                int uID = rs.getInt(columnLabel:"UserID")
+                String pw = rs.getString(columnLabel:"Passsword")
+                System.out.println("UserID from DB" + uID + "password from DB" + pw);
+            }
+            //System.out.println();
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
         DBConnect.dbConnect DB = new dbConnect();//Object from DB connect
         DB.Connect2DB();//Connect to DB
 

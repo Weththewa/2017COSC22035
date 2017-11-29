@@ -1,10 +1,14 @@
 package DBConnect;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 public class dbConnect {
         //public String url = "localhost";
         public String url = "172.16.20.180";
         public String port = "3306"; //8889
-        public String database = "test";
+    public String database = "hacklnjava";
         public String user = "admin";
         public String password = "stcs";//root
         public String JDBC_DRIVER = "com.mysql.jdbc.Driver";
